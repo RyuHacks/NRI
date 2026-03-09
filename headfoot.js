@@ -386,7 +386,7 @@ const headerHTML = `
   <a href="process.html">Process</a>
   <a href="about.html">About</a>
   <div class="nri-mobile-rule"></div>
-  <a href="#contact" class="nri-cta">Get in touch</a>
+  <a href="contact.html" class="nri-cta">Get in touch</a>
 </nav>
 `;
 
@@ -639,4 +639,5 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', nriInit);
 } else {
   nriInit();
+
 }
