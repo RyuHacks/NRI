@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Process | NRI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --nri-white:   #ffffff;
+      --nri-bg:      #fafafa;
+      --nri-ink:     #111111;
+      --nri-mid:     #6b7280;
+      --nri-rule:    #e5e7eb;
+      --nri-blue:    #2563eb;
+      --nri-blue-bg: #eff6ff;
+      --nri-ff:      'Inter', -apple-system, sans-serif;
+      --nri-trans:   0.18s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--nri-white);
+      color: var(--nri-ink);
+      font-family: var(--nri-ff);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    section { padding: 96px 0; }
+
+    /* ── HEADER OVERRIDES ─────────────────────────────────────────────── */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 96px;
+      border-bottom: 1px solid var(--nri-rule);
+      background: var(--nri-bg);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--nri-ink);
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.65;
+      max-width: 580px;
+    }
+
+    /* ── PROCESS LAYOUT ───────────────────────────────────────────────── */
+    .step-section {
+      border-bottom: 1px solid var(--nri-rule);
+    }
+
+    .step-header {
+      margin-bottom: 40px;
+    }
+
+    .step-number {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--nri-blue);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .step-header h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 600;
+      letter-spacing: -0.8px;
+      color: var(--nri-ink);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .step-header p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .split-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .split-card {
+      background: var(--nri-white);
+      border: 1px solid var(--nri-rule);
+      padding: 40px;
+      border-radius: 12px;
+    }
+
+    .split-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--nri-ink);
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .split-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .split-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .split-list li {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--nri-ink);
+      padding: 8px 0;
+      border-top: 1px solid var(--nri-rule);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .split-list li::before {
+      content: '→';
+      color: var(--nri-blue);
+      font-size: 14px;
+    }
+
+    /* ── CTA ──────────────────────────────────────────────────────────── */
+    .cta-outer {
+      border-top: 1px solid var(--nri-rule);
+    }
+
+    .cta-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .cta-left h2 {
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 600;
+      letter-spacing: -0.8px;
+      color: var(--nri-ink);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .cta-left p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.65;
+      max-width: 360px;
+    }
+
+    .cta-right { flex-shrink: 0; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--nri-trans);
+      font-family: var(--nri-ff);
+      cursor: pointer;
+      border: none;
+      letter-spacing: -0.1px;
+    }
+
+    .btn-dark { background: var(--nri-ink); color: var(--nri-white); }
+    .btn-dark:hover { background: #1c1c1c; transform: translateY(-1px); }
+
+    .cta-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>How we work.</h1>
+        <p class="hero-sub">We figure out exactly what is broken before we start building anything. This saves time and prevents us from creating tools you do not actually need.</p>
+      </div>
+    </section>
+
+    <section class="step-section">
+      <div class="container">
+        <div class="step-header">
+          <span class="step-number">Phase 01</span>
+          <h2>UX Discovery and Research</h2>
+          <p>Everything begins with understanding your current setup. We look at your existing systems to find the actual pain points.</p>
+        </div>
+        <div style="max-width: 800px;">
+          <p style="font-size: 14px; color: var(--nri-mid); line-height: 1.65; margin-bottom: 16px;">
+            We map out your workflows and identify where your team gets stuck. Sometimes the problem is a confusing database layout. Other times developers cannot find the right integration guides.
+          </p>
+          <p style="font-size: 14px; color: var(--nri-mid); line-height: 1.65;">
+            Once we have a clear picture of the friction points, we decide on the best solution. From here, our process splits into two possible directions based on what your team needs to succeed. We can also handle both areas if your project requires it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="step-section" style="background: var(--nri-bg);">
+      <div class="container">
+        <div class="step-header">
+          <span class="step-number">Phase 02</span>
+          <h2>Execution and Build</h2>
+          <p>We take the research from the discovery phase and start creating the solution. We focus on these two main service areas.</p>
+        </div>
+
+        <div class="split-grid">
+          <div class="split-card">
+            <h3>Software Development</h3>
+            <p>If you need a custom tool or a better way to organize data, we build it. First, we create an initial working application using Python or Rust.</p>
+            <p>Then, our engineering specialist reviews the code to check the logic and optimize performance before it goes live.</p>
+            <ul class="split-list" style="margin-top: 32px;">
+              <li>Custom application creation</li>
+              <li>Dashboard consolidation</li>
+              <li>Workflow automation setup</li>
+              <li>Script optimization</li>
+            </ul>
+          </div>
+
+          <div class="split-card">
+            <h3>Technical Documentation</h3>
+            <p>If your developers are struggling to adopt your platform, we focus on documentation. We build GitBook portals and create technical diagrams in Figma.</p>
+            <p>We also write clear onboarding guides to give your team the exact information they need to integrate quickly.</p>
+            <ul class="split-list" style="margin-top: 32px;">
+              <li>GitBook portal setup</li>
+              <li>Figma data flow diagrams</li>
+              <li>New developer onboarding guides</li>
+              <li>Integration walkthroughs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="step-section">
+      <div class="container">
+        <div class="step-header">
+          <span class="step-number">Phase 03</span>
+          <h2>Final Handoff</h2>
+          <p>Once the work is done, we hand everything over to you. We make sure your team knows exactly how to use the new setup.</p>
+        </div>
+        <div style="max-width: 800px;">
+          <p style="font-size: 14px; color: var(--nri-mid); line-height: 1.65;">
+            You get full ownership of the custom code and the final documentation. We provide deployment instructions and a maintenance guide so your team can easily update things in the future.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-outer" id="contact">
+      <section class="cta-section">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+          <div class="cta-left">
+            <h2>Ready to simplify your workflows?</h2>
+            <p>Book a free call. We will discuss your current needs and explore how our team can help.</p>
+          </div>
+          <div class="cta-right">
+            <a href="#" class="btn btn-dark" style="font-size:15px;padding:12px 28px;">Book a call</a>
+            <p class="cta-note">No commitment · Replies within 24 hrs</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="headfoot.js"></script>
+</body>
+</html>

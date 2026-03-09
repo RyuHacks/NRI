@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | NRI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --nri-white:   #ffffff;
+      --nri-bg:      #fafafa;
+      --nri-ink:     #111111;
+      --nri-mid:     #6b7280;
+      --nri-rule:    #e5e7eb;
+      --nri-blue:    #2563eb;
+      --nri-blue-bg: #eff6ff;
+      --nri-ff:      'Inter', -apple-system, sans-serif;
+      --nri-trans:   0.18s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--nri-bg);
+      color: var(--nri-ink);
+      font-family: var(--nri-ff);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    /* ── HEADER OVERRIDES ─────────────────────────────────────────────── */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 64px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--nri-ink);
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.65;
+      max-width: 580px;
+    }
+
+    /* ── CONTACT SECTION ──────────────────────────────────────────────── */
+    .contact-section {
+      padding-bottom: 120px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* Left Side - Info */
+    .contact-info h2 {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--nri-ink);
+      margin-bottom: 8px;
+    }
+
+    .contact-info p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 320px;
+    }
+
+    .info-block {
+      margin-bottom: 24px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .info-value {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--nri-ink);
+      text-decoration: none;
+      transition: color var(--nri-trans);
+    }
+
+    .info-value:hover {
+      color: var(--nri-blue);
+    }
+
+    /* Right Side - Form */
+    .contact-card {
+      background: var(--nri-white);
+      border: 1px solid var(--nri-rule);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+    }
+
+    @media (max-width: 480px) {
+      .contact-card { padding: 24px; }
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--nri-ink);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--nri-rule);
+      border-radius: 8px;
+      font-family: var(--nri-ff);
+      font-size: 14px;
+      color: var(--nri-ink);
+      background: var(--nri-white);
+      transition: border-color var(--nri-trans), box-shadow var(--nri-trans);
+    }
+
+    .form-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--nri-blue);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--nri-trans);
+      font-family: var(--nri-ff);
+      cursor: pointer;
+      border: none;
+      letter-spacing: -0.1px;
+      width: 100%;
+    }
+
+    .btn-dark { background: var(--nri-ink); color: var(--nri-white); }
+    .btn-dark:hover { background: #1c1c1c; transform: translateY(-1px); }
+
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Get in touch.</h1>
+        <p class="hero-sub">Send us a message to discuss your current setup. We will review your workflow and see how our team can help.</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <div class="contact-info">
+            <h2>Direct Contact</h2>
+            <p>We are a small team and handle all inquiries directly. You can expect a response within 24 hours.</p>
+            
+            <div class="info-block">
+              <span class="info-label">Email</span>
+              <a href="mailto:nri@gmail.com" class="info-value">nri@gmail.com</a>
+            </div>
+
+            <div class="info-block">
+              <span class="info-label">Current Status</span>
+              <span class="info-value" style="color: var(--nri-mid);">Accepting new projects</span>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <form action="#" method="POST">
+              
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="first-name">First Name</label>
+                  <input type="text" id="first-name" name="first-name" class="form-input" placeholder="Jane" required>
+                </div>
+                <div>
+                  <label class="form-label" for="last-name">Last Name</label>
+                  <input type="text" id="last-name" name="last-name" class="form-input" placeholder="Doe" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Work Email</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="jane@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="company">Company</label>
+                <input type="text" id="company" name="company" class="form-input" placeholder="Your Company Name" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">How can we help?</label>
+                <textarea id="message" name="message" class="form-input" placeholder="Tell us a bit about your current challenges..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-dark">Send Message</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="headfoot.js"></script>
+</body>
+</html>

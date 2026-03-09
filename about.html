@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | NRI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --nri-white:   #ffffff;
+      --nri-bg:      #fafafa;
+      --nri-ink:     #111111;
+      --nri-mid:     #6b7280;
+      --nri-rule:    #e5e7eb;
+      --nri-blue:    #2563eb;
+      --nri-blue-bg: #eff6ff;
+      --nri-ff:      'Inter', -apple-system, sans-serif;
+      --nri-trans:   0.18s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--nri-white);
+      color: var(--nri-ink);
+      font-family: var(--nri-ff);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    section { padding: 96px 0; }
+
+    /* ── HEADER OVERRIDES ─────────────────────────────────────────────── */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 96px;
+      border-bottom: 1px solid var(--nri-rule);
+      background: var(--nri-bg);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--nri-ink);
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.65;
+      max-width: 580px;
+    }
+
+    /* ── STORY SECTION ────────────────────────────────────────────────── */
+    .story-section {
+      padding: 96px 0;
+    }
+
+    .story-content {
+      max-width: 720px;
+    }
+
+    .story-content h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--nri-ink);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      margin-top: 48px;
+    }
+
+    .story-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .story-content p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+      padding-top: 56px;
+      border-top: 1px solid var(--nri-rule);
+    }
+
+    @media (max-width: 600px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+
+    .team-card {
+      background: var(--nri-bg);
+      border: 1px solid var(--nri-rule);
+      padding: 32px;
+      border-radius: 12px;
+    }
+
+    .team-card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--nri-ink);
+      margin-bottom: 8px;
+    }
+
+    .team-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* ── CTA ──────────────────────────────────────────────────────────── */
+    .cta-outer {
+      border-top: 1px solid var(--nri-rule);
+    }
+
+    .cta-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .cta-left h2 {
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 600;
+      letter-spacing: -0.8px;
+      color: var(--nri-ink);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .cta-left p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--nri-mid);
+      line-height: 1.65;
+      max-width: 360px;
+    }
+
+    .cta-right { flex-shrink: 0; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--nri-trans);
+      font-family: var(--nri-ff);
+      cursor: pointer;
+      border: none;
+      letter-spacing: -0.1px;
+    }
+
+    .btn-dark { background: var(--nri-ink); color: var(--nri-white); }
+    .btn-dark:hover { background: #1c1c1c; transform: translateY(-1px); }
+
+    .cta-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Why we started.</h1>
+        <p class="hero-sub">We are a team of students from Wilfrid Laurier University and McMaster University. We started this business to solve the workflow gaps we experienced firsthand while working in the industry.</p>
+      </div>
+    </section>
+
+    <section class="story-section">
+      <div class="container">
+        <div class="story-content">
+          
+          <h2>The problem with fragmented systems</h2>
+          <p>During our time working at BlackBerry on the IVY platform, we noticed a recurring issue. The platform was incredibly powerful. However, it struggled with developer adoption because the onboarding flows and integration guides were unclear. Teams were spending too much time trying to figure out how to connect basic sensors instead of building their actual products.</p>
+          <p>We saw that good software fails when the documentation around it is fragmented. Developers need clear step by step instructions to adopt new tools quickly.</p>
+
+          <h2>Replacing outdated databases</h2>
+          <p>We saw a different set of problems while working with companies like Galderma. Their teams relied on massive Excel spreadsheets to track complex packaging variables and regulatory numbers. The user experience was terrible. Information was hard to find and simple data entry tasks often turned into error prone chores.</p>
+          <p>At one point, someone accidentally ruined the entire spreadsheet. It took significant effort to fix the file and resync the data. We decided to build a proper custom database using Python and Flet to replace the spreadsheet entirely. This new system prevented accidental deletions and provided a clean dashboard for the team.</p>
+
+          <h2>How our team is built</h2>
+          <p>These experiences showed us a clear gap in the market. Companies have a hard time bridging UX research with technical execution. We formed a three person team to fix this.</p>
+
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <h3>UX and Initial Development</h3>
+            <p>Two of us come from the UX program at Wilfrid Laurier University. We focus on finding the exact pain points in a workflow. Once we understand the problem, we map out a solution and build the initial working application in Python or Rust.</p>
+          </div>
+          <div class="team-card">
+            <h3>Engineering and Optimization</h3>
+            <p>Our third member is an ECE student at McMaster University. They take over once the initial software is built. They run formal logic checks on the code and optimize the overall performance before we hand the final product over to the client.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="cta-outer" id="contact">
+      <section class="cta-section">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+          <div class="cta-left">
+            <h2>Ready to simplify your workflows?</h2>
+            <p>Book a free call. We will discuss your current needs and explore how our team can help.</p>
+          </div>
+          <div class="cta-right">
+            <a href="contact.html" class="btn btn-dark" style="font-size:15px;padding:12px 28px;">Book a call</a>
+            <p class="cta-note">No commitment · Replies within 24 hrs</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="headfoot.js"></script>
+</body>
+</html>
