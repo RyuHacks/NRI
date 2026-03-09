@@ -1,0 +1,23 @@
+# Disable MultiViews to prevent conflicts
+Options -MultiViews
+
+RewriteEngine On
+RewriteBase /
+
+# 1. Redirect internal .html requests to the extensionless URL (SEO friendly)
+# This changes /about.html to /about
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# 2. Map the extensionless URL back to the .html file internally
+# This handles the actual loading of the page
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php82” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
